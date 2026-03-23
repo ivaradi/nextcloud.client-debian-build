@@ -25,7 +25,7 @@ if test "${exists}" = "no" -o "${commit}" != "$(cat "${commitfile}")"; then
     if test "${exists}" = "no"; then
         git -C "${scriptdir}" add "${commitfile}"
     fi
-    git -C "${scriptdir}" commit -m "Updated latest commit for branch ${BRANCH}"
+    git -C "${scriptdir}" commit -a -m "Updated latest commit for branch ${BRANCH}"
     git -C "${scriptdir}" push
 
     "${scriptdir}/debian-build.sh" "${WORKSPACE}" \
