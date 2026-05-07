@@ -7,9 +7,6 @@ scriptdir="$(readlink -f "$(dirname "${0}")")"
 
 source "${scriptdir}/config.sh"
 
-cat /etc/dput.cf
-exit 1
-
 WORKSPACE="${1}"
 COMMIT="${2}"
 BRANCH="${3:-master}"
