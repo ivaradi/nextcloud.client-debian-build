@@ -425,7 +425,7 @@ index ab99460a0f..6d911b7217 100644
  // SQL expression to check whether path.startswith(prefix + '/')
  // Note: '/' + 1 == '0'
 diff --git a/src/csync/csync_exclude.cpp b/src/csync/csync_exclude.cpp
-index 72e585aea7..9bf2a8c344 100644
+index b92cfa08e4..38f3d462ec 100644
 --- a/src/csync/csync_exclude.cpp
 +++ b/src/csync/csync_exclude.cpp
 @@ -21,6 +21,7 @@
@@ -436,7 +436,7 @@ index 72e585aea7..9bf2a8c344 100644
  #include "../version.h"
  
  #include <QString>
-@@ -309,7 +310,7 @@ void ExcludedFiles::loadExcludeFilePatterns(const QString &basePath, QFile &file
+@@ -300,7 +301,7 @@ void ExcludedFiles::loadExcludeFilePatterns(const QString &basePath, QFile &file
          if (line.isEmpty() || line.startsWith('#'))
              continue;
          const auto patternStr = QString::fromUtf8(line);
@@ -445,7 +445,7 @@ index 72e585aea7..9bf2a8c344 100644
              continue;
          }
          csync_exclude_expand_escapes(line);
-@@ -471,10 +472,10 @@ CSYNC_EXCLUDE_TYPE ExcludedFiles::traversalPatternMatch(const QString &path, Ite
+@@ -462,10 +463,10 @@ CSYNC_EXCLUDE_TYPE ExcludedFiles::traversalPatternMatch(const QString &path, Ite
          QRegularExpressionMatch m;
          if (filetype == ItemTypeDirectory
              && _bnameTraversalRegexDir.contains(basePath)) {
@@ -526,7 +526,7 @@ index f49410d6ea..db71b8e12d 100644
  
                  onClicked: {
 diff --git a/src/gui/accountsettings.cpp b/src/gui/accountsettings.cpp
-index b08ac34f05..e6eba78db3 100644
+index fe7c66e315..be9eb6ee83 100644
 --- a/src/gui/accountsettings.cpp
 +++ b/src/gui/accountsettings.cpp
 @@ -10,6 +10,7 @@
@@ -722,7 +722,7 @@ index d70dd35817..585a86502e 100644
      }
      return true;
 diff --git a/src/gui/settingsdialog.cpp b/src/gui/settingsdialog.cpp
-index f703f8eaf4..d3a513823e 100644
+index d6e8336f83..173d0f9d9b 100644
 --- a/src/gui/settingsdialog.cpp
 +++ b/src/gui/settingsdialog.cpp
 @@ -15,6 +15,7 @@
@@ -1116,10 +1116,10 @@ index 199f7c0546..588dc8ad3b 100644
                  }
  
 diff --git a/src/libsync/account.cpp b/src/libsync/account.cpp
-index bc09419b66..3bf4a99f65 100644
+index d55b7951ea..4a5f91ee95 100644
 --- a/src/libsync/account.cpp
 +++ b/src/libsync/account.cpp
-@@ -24,6 +24,7 @@
+@@ -25,6 +25,7 @@
  
  #include "common/syncjournaldb.h"
  #include "common/asserts.h"
@@ -1127,8 +1127,8 @@ index bc09419b66..3bf4a99f65 100644
  #include "clientsideencryption.h"
  #include "ocsuserstatusconnector.h"
  
-@@ -1289,7 +1290,8 @@ void Account::listRemoteFolder(QPromise<OCC::PlaceholderCreateInfo> *promise, co
-             newEntry.size = 0;
+@@ -1295,7 +1296,8 @@ void Account::listRemoteFolder(QPromise<OCC::PlaceholderCreateInfo> *promise, co
+             return;
          }
  
 -        promise->emplaceResult(itemFileName, itemFileName.toStdWString(), absoluteItemPathName, newEntry);
@@ -1211,7 +1211,7 @@ index cc8c83cd54..d618fc3acd 100644
      return decryptedAndUnGzipped;
  }
 diff --git a/src/libsync/discovery.cpp b/src/libsync/discovery.cpp
-index e6b68acc48..cdd4bf353c 100644
+index 3e19660240..77f8abed38 100644
 --- a/src/libsync/discovery.cpp
 +++ b/src/libsync/discovery.cpp
 @@ -23,6 +23,7 @@
@@ -1487,7 +1487,7 @@ index a70088034e..4943ccd79c 100644
  #include <networkjobs.h>
  
 diff --git a/src/libsync/propagateuploadng.cpp b/src/libsync/propagateuploadng.cpp
-index 0582611616..617a0b5381 100644
+index 261b6e5dd3..ff33970a81 100644
 --- a/src/libsync/propagateuploadng.cpp
 +++ b/src/libsync/propagateuploadng.cpp
 @@ -18,6 +18,7 @@
@@ -1640,7 +1640,7 @@ index bd6a7d441c..01ed6685bc 100644
          if (fileInfo.isShared) {
              if (fileInfo.downloadForbidden) {
 diff --git a/test/testaccount.cpp b/test/testaccount.cpp
-index e216250cc5..58399de2d3 100644
+index 9f032c6ebe..5fefa5d295 100644
 --- a/test/testaccount.cpp
 +++ b/test/testaccount.cpp
 @@ -12,6 +12,7 @@
